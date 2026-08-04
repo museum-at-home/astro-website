@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="About - My Website" description="Learn more about us">
+  <Navigation />
+  <main>
+    <h1>About Us</h1>
+    <p>Welcome to our About page. This is where you can tell your story and share more information about yourself or your organization.</p>
+    
+    <section>
+      <h2>Our Mission</h2>
+      <p>We are dedicated to providing exceptional service and creating meaningful experiences for our community.</p>
+    </section>
+
+    <section>
+      <h2>Our Values</h2>
+      <ul>
+        <li>Integrity and transparency</li>
+        <li>Innovation and creativity</li>
+        <li>Community and collaboration</li>
+        <li>Excellence in all we do</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Our Team</h2>
+      <p>Our team is composed of passionate professionals dedicated to making a difference.</p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    color: #0066cc;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    color: #004999;
+    margin-top: 2rem;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    margin-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    line-height: 1.8;
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Home - My Website" description="Welcome to our website">
+  <Navigation />
+  <main>
+    <h1>🚀 Welcome to Astro</h1>
+    <p>This is your starting point. Edit <code>src/pages/index.astro</code> to get started.</p>
+    
+    <section>
+      <h2>Features</h2>
+      <ul>
+        <li>Fast performance</li>
+        <li>Easy to use</li>
+        <li>Built with HTML, CSS, and JavaScript</li>
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    color: #0066cc;
+    margin-bottom: 1.5rem;
+  }
+
+  section {
+    margin-top: 2rem;
+  }
+
+  ul {
+    margin-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  code {
+    background-color: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+  }
+</style>

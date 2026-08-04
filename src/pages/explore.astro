@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Explore - My Website" description="Explore our content and offerings">
+  <Navigation />
+  <main>
+    <h1>Explore</h1>
+    <p>Discover what we have to offer. Browse through our collection of content, projects, and resources.</p>
+    
+    <section>
+      <h2>Featured Content</h2>
+      <div class="content-grid">
+        <div class="content-card">
+          <h3>Item 1</h3>
+          <p>Description of your first featured item goes here.</p>
+        </div>
+        <div class="content-card">
+          <h3>Item 2</h3>
+          <p>Description of your second featured item goes here.</p>
+        </div>
+        <div class="content-card">
+          <h3>Item 3</h3>
+          <p>Description of your third featured item goes here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Categories</h2>
+      <ul>
+        <li><a href="#">Category 1</a></li>
+        <li><a href="#">Category 2</a></li>
+        <li><a href="#">Category 3</a></li>
+        <li><a href="#">Category 4</a></li>
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    color: #0066cc;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    color: #004999;
+    margin-top: 2rem;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .content-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .content-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .content-card h3 {
+    color: #0066cc;
+    margin-bottom: 0.75rem;
+  }
+
+  ul {
+    margin-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.75rem;
+  }
+
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

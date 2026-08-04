@@ -1,0 +1,77 @@
+---
+// Navigation component for site-wide navigation
+---
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">My Website</a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="/" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="/about" class="nav-link">About</a>
+      </li>
+      <li class="nav-item">
+        <a href="/explore" class="nav-link">Explore</a>
+      </li>
+      <li class="nav-item">
+        <a href="/map" class="nav-link">Map</a>
+      </li>
+      <li class="nav-item">
+        <a href="/contact" class="nav-link">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    background-color: #0066cc;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .nav-logo:hover {
+    color: #e0e0e0;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .nav-link {
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #ffcc00;
+    text-decoration: none;
+  }
+</style>
