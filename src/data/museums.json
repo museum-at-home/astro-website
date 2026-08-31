@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "The Metropolitan Museum of Art",
+    "location": "New York, USA",
+    "type": "Art",
+    "description": "One of the world's largest and finest art museums with extensive collections spanning 5,000 years.",
+    "website": "https://www.metmuseum.org",
+    "has3DTour": true,
+    "hasAudioTour": true,
+    "rating": 5,
+    "imageUrl": "https://via.placeholder.com/300x200?text=Metropolitan+Museum"
+  },
+  {
+    "id": 2,
+    "name": "The British Museum",
+    "location": "London, England",
+    "type": "History",
+    "description": "A museum of human history and culture with over 8 million objects from around the world.",
+    "website": "https://www.britishmuseum.org",
+    "has3DTour": true,
+    "hasAudioTour": true,
+    "rating": 5,
+    "imageUrl": "https://via.placeholder.com/300x200?text=British+Museum"
+  },
+  {
+    "id": 3,
+    "name": "The American Museum of Natural History",
+    "location": "New York, USA",
+    "type": "Science",
+    "description": "A major museum featuring exhibits on human cultures, the natural world, and space exploration.",
+    "website": "https://www.amnh.org",
+    "has3DTour": true,
+    "hasAudioTour": true,
+    "rating": 5,
+    "imageUrl": "https://via.placeholder.com/300x200?text=AMNH"
+  },
+  {
+    "id": 4,
+    "name": "The Louvre",
+    "location": "Paris, France",
+    "type": "Art",
+    "description": "The world's most visited museum, home to the Mona Lisa and thousands of masterpieces.",
+    "website": "https://www.louvre.fr",
+    "has3DTour": true,
+    "hasAudioTour": true,
+    "rating": 5,
+    "imageUrl": "https://via.placeholder.com/300x200?text=The+Louvre"
+  },
+  {
+    "id": 5,
+    "name": "The National WWII Museum",
+    "location": "New Orleans, USA",
+    "type": "History",
+    "description": "A comprehensive museum dedicated to World War II history with interactive exhibits.",
+    "website": "https://www.nationalww2museum.org",
+    "has3DTour": true,
+    "hasAudioTour": true,
+    "rating": 4,
+    "imageUrl": "https://via.placeholder.com/300x200?text=WWII+Museum"
+  },
+  {
+    "id": 6,
+    "name": "The Museum of Modern Art (MoMA)",
+    "location": "New York, USA",
+    "type": "Art",
+    "description": "A leading modern and contemporary art museum with works from the late 19th century to present.",
+    "website": "https://www.moma.org",
+    "has3DTour": false,
+    "hasAudioTour": true,
+    "rating": 4,
+    "imageUrl": "https://via.placeholder.com/300x200?text=MoMA"
+  },
+  {
+    "id": 7,
+    "name": "The Smithsonian National Museum of Natural History",
+    "location": "Washington DC, USA",
+    "type": "Science",
+    "description": "One of the world's preeminent museums of natural history with over 145 million specimens.",
+    "website": "https://naturalhistory.si.edu",
+    "has3DTour": true,
+    "hasAudioTour": true,
+    "rating": 5,
+    "imageUrl": "https://via.placeholder.com/300x200?text=Smithsonian"
+  },
+  {
+    "id": 8,
+    "name": "The Vatican Museums",
+    "location": "Vatican City",
+    "type": "Art",
+    "description": "A vast collection of art and antiquities from the Roman Empire to the present day.",
+    "website": "https://www.museivaticani.va",
+    "has3DTour": true,
+    "hasAudioTour": false,
+    "rating": 4,
+    "imageUrl": "https://via.placeholder.com/300x200?text=Vatican+Museums"
+  },
+  {
+    "id": 9,
+    "name": "The Science Museum",
+    "location": "London, England",
+    "type": "Science",
+    "description": "An interactive science museum with exhibits covering technology, space, and natural sciences.",
+    "website": "https://www.sciencemuseum.org.uk",
+    "has3DTour": true,
+    "hasAudioTour": true,
+    "rating": 4,
+    "imageUrl": "https://via.placeholder.com/300x200?text=Science+Museum+London"
+  },
+  {
+    "id": 10,
+    "name": "The Egyptian Museum",
+    "location": "Cairo, Egypt",
+    "type": "History",
+    "description": "Home to the world's largest collection of ancient Egyptian artifacts including mummies and treasures.",
+    "website": "https://egymuseum.org",
+    "has3DTour": true,
+    "hasAudioTour": false,
+    "rating": 5,
+    "imageUrl": "https://via.placeholder.com/300x200?text=Egyptian+Museum"
+  }
+]

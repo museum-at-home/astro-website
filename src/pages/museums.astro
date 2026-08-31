@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import MuseumFilter from '../components/MuseumFilter.astro';
+import type { Museum } from '../types/museum';
+import museums from '../data/museums.json';
+---
+
+<Layout title="Museums - Museum at Home" description="Explore museums around the world with filters for 3D tours, audio tours, and ratings">
+  <Navigation />
+  <main>
+    <h1>Explore Museums Around the World</h1>
+    <p>Discover amazing museums with our searchable and filterable database. Find museums by type, check which ones have 3D tours and audio guides, and see our personal ratings.</p>
+    
+    <MuseumFilter museums={museums as Museum[]} />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    color: #0066cc;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  p {
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+</style>

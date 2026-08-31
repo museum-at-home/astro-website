@@ -1,0 +1,406 @@
+---
+import type { Museum } from '../types/museum';
+
+interface Props {
+  museums: Museum[];
+}
+
+const { museums } = Astro.props;
+---
+
+<div class="museums-container">
+  <div class="filters-section">
+    <h2>Filter Museums</h2>
+    
+    <div class="filter-group">
+      <label for="type-filter">Museum Type:</label>
+      <select id="type-filter" class="filter-select">
+        <option value="">All Types</option>
+        <option value="Art">Art</option>
+        <option value="Science">Science</option>
+        <option value="History">History</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="3d-filter">Has 3D Tour:</label>
+      <select id="3d-filter" class="filter-select">
+        <option value="">All</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="audio-filter">Has Audio Tour:</label>
+      <select id="audio-filter" class="filter-select">
+        <option value="">All</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="rating-filter">Minimum Rating:</label>
+      <select id="rating-filter" class="filter-select">
+        <option value="">All Ratings</option>
+        <option value="5">5 Stars</option>
+        <option value="4">4+ Stars</option>
+        <option value="3">3+ Stars</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="search-input">Search Museum Name:</label>
+      <input 
+        type="text" 
+        id="search-input" 
+        class="search-input" 
+        placeholder="Type museum name..."
+      />
+    </div>
+
+    <button id="reset-filters" class="reset-btn">Reset Filters</button>
+  </div>
+
+  <div class="museums-grid" id="museums-grid">
+    {museums.map((museum: Museum) => (
+      <div class="museum-card" data-type={museum.type} data-3d={museum.has3DTour} data-audio={museum.hasAudioTour} data-rating={museum.rating} data-name={museum.name.toLowerCase()}>
+        <div class="museum-image">
+          <img src={museum.imageUrl} alt={museum.name} />
+        </div>
+        <div class="museum-content">
+          <h3>{museum.name}</h3>
+          <p class="location">📍 {museum.location}</p>
+          <p class="type"><strong>Type:</strong> {museum.type}</p>
+          <p class="description">{museum.description}</p>
+          
+          <div class="museum-features">
+            <div class="feature" class:list={{ active: museum.has3DTour }}>
+              <span class="feature-icon">🔍</span>
+              <span>3D Tour: {museum.has3DTour ? '✓' : '✗'}</span>
+            </div>
+            <div class="feature" class:list={{ active: museum.hasAudioTour }}>
+              <span class="feature-icon">🎧</span>
+              <span>Audio Tour: {museum.hasAudioTour ? '✓' : '✗'}</span>
+            </div>
+          </div>
+
+          <div class="museum-footer">
+            <div class="rating">
+              <span class="stars">{'⭐'.repeat(museum.rating)}</span>
+              <span class="rating-text">{museum.rating}/5</span>
+            </div>
+            <a href={museum.website} target="_blank" class="visit-btn">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div id="no-results" class="no-results" style="display: none;">
+    <p>No museums found matching your filters. Try adjusting your search.</p>
+  </div>
+</div>
+
+<script>
+  const typeFilter = document.getElementById('type-filter') as HTMLSelectElement;
+  const threeD = document.getElementById('3d-filter') as HTMLSelectElement;
+  const audioFilter = document.getElementById('audio-filter') as HTMLSelectElement;
+  const ratingFilter = document.getElementById('rating-filter') as HTMLSelectElement;
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const resetBtn = document.getElementById('reset-filters') as HTMLButtonElement;
+  const museumsGrid = document.getElementById('museums-grid') as HTMLDivElement;
+  const noResults = document.getElementById('no-results') as HTMLDivElement;
+
+  function filterMuseums() {
+    const cards = museumsGrid.querySelectorAll('.museum-card');
+    let visibleCount = 0;
+
+    cards.forEach((card: Element) => {
+      const cardElement = card as HTMLElement;
+      const type = cardElement.getAttribute('data-type');
+      const has3D = cardElement.getAttribute('data-3d') === 'true';
+      const hasAudio = cardElement.getAttribute('data-audio') === 'true';
+      const rating = parseInt(cardElement.getAttribute('data-rating') || '0');
+      const name = cardElement.getAttribute('data-name') || '';
+
+      let show = true;
+
+      // Filter by type
+      if (typeFilter.value && type !== typeFilter.value) {
+        show = false;
+      }
+
+      // Filter by 3D tour
+      if (threeD.value !== '') {
+        const wants3D = threeD.value === 'true';
+        if (has3D !== wants3D) {
+          show = false;
+        }
+      }
+
+      // Filter by audio tour
+      if (audioFilter.value !== '') {
+        const wantsAudio = audioFilter.value === 'true';
+        if (hasAudio !== wantsAudio) {
+          show = false;
+        }
+      }
+
+      // Filter by rating
+      if (ratingFilter.value) {
+        const minRating = parseInt(ratingFilter.value);
+        if (rating < minRating) {
+          show = false;
+        }
+      }
+
+      // Filter by search term
+      if (searchInput.value) {
+        const searchTerm = searchInput.value.toLowerCase();
+        if (!name.includes(searchTerm)) {
+          show = false;
+        }
+      }
+
+      cardElement.style.display = show ? 'flex' : 'none';
+      if (show) visibleCount++;
+    });
+
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  function resetFilters() {
+    typeFilter.value = '';
+    threeD.value = '';
+    audioFilter.value = '';
+    ratingFilter.value = '';
+    searchInput.value = '';
+    filterMuseums();
+  }
+
+  typeFilter.addEventListener('change', filterMuseums);
+  threeD.addEventListener('change', filterMuseums);
+  audioFilter.addEventListener('change', filterMuseums);
+  ratingFilter.addEventListener('change', filterMuseums);
+  searchInput.addEventListener('input', filterMuseums);
+  resetBtn.addEventListener('click', resetFilters);
+</script>
+
+<style>
+  .museums-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .filters-section {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0066cc;
+  }
+
+  .filters-section h2 {
+    color: #0066cc;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .filter-select,
+  .search-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+
+  .filter-select:focus,
+  .search-input:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  }
+
+  .reset-btn {
+    background-color: #999;
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .reset-btn:hover {
+    background-color: #666;
+  }
+
+  .museums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .museum-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .museum-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .museum-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+
+  .museum-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .museum-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .museum-content h3 {
+    color: #0066cc;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .location {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .type {
+    color: #004999;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .description {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .museum-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  .feature.active {
+    background-color: #e8f4f8;
+    color: #0066cc;
+    font-weight: 600;
+  }
+
+  .feature-icon {
+    font-size: 1rem;
+  }
+
+  .museum-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .stars {
+    font-size: 1.2rem;
+  }
+
+  .rating-text {
+    font-weight: 600;
+    color: #0066cc;
+    font-size: 0.9rem;
+  }
+
+  .visit-btn {
+    background-color: #0066cc;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .visit-btn:hover {
+    background-color: #004999;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .museums-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+  }
+</style>
