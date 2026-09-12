@@ -9,7 +9,9 @@
     "has3DTour": true,
     "hasAudioTour": true,
     "rating": 5,
-    "imageUrl": "https://via.placeholder.com/300x200?text=Metropolitan+Museum"
+    "imageUrl": "https://via.placeholder.com/300x200?text=Metropolitan+Museum",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 2,
@@ -21,7 +23,9 @@
     "has3DTour": true,
     "hasAudioTour": true,
     "rating": 5,
-    "imageUrl": "https://via.placeholder.com/300x200?text=British+Museum"
+    "imageUrl": "https://via.placeholder.com/300x200?text=British+Museum",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 3,
@@ -33,7 +37,9 @@
     "has3DTour": true,
     "hasAudioTour": true,
     "rating": 5,
-    "imageUrl": "https://via.placeholder.com/300x200?text=AMNH"
+    "imageUrl": "https://via.placeholder.com/300x200?text=AMNH",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 4,
@@ -45,7 +51,9 @@
     "has3DTour": true,
     "hasAudioTour": true,
     "rating": 5,
-    "imageUrl": "https://via.placeholder.com/300x200?text=The+Louvre"
+    "imageUrl": "https://via.placeholder.com/300x200?text=The+Louvre",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 5,
@@ -57,7 +65,9 @@
     "has3DTour": true,
     "hasAudioTour": true,
     "rating": 4,
-    "imageUrl": "https://via.placeholder.com/300x200?text=WWII+Museum"
+    "imageUrl": "https://via.placeholder.com/300x200?text=WWII+Museum",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 6,
@@ -69,7 +79,9 @@
     "has3DTour": false,
     "hasAudioTour": true,
     "rating": 4,
-    "imageUrl": "https://via.placeholder.com/300x200?text=MoMA"
+    "imageUrl": "https://via.placeholder.com/300x200?text=MoMA",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 7,
@@ -81,7 +93,9 @@
     "has3DTour": true,
     "hasAudioTour": true,
     "rating": 5,
-    "imageUrl": "https://via.placeholder.com/300x200?text=Smithsonian"
+    "imageUrl": "https://via.placeholder.com/300x200?text=Smithsonian",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 8,
@@ -93,7 +107,9 @@
     "has3DTour": true,
     "hasAudioTour": false,
     "rating": 4,
-    "imageUrl": "https://via.placeholder.com/300x200?text=Vatican+Museums"
+    "imageUrl": "https://via.placeholder.com/300x200?text=Vatican+Museums",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 9,
@@ -105,7 +121,9 @@
     "has3DTour": true,
     "hasAudioTour": true,
     "rating": 4,
-    "imageUrl": "https://via.placeholder.com/300x200?text=Science+Museum+London"
+    "imageUrl": "https://via.placeholder.com/300x200?text=Science+Museum+London",
+    "link3DTour": "",
+    "review": "Add your review here"
   },
   {
     "id": 10,
@@ -117,6 +135,8 @@
     "has3DTour": true,
     "hasAudioTour": false,
     "rating": 5,
-    "imageUrl": "https://via.placeholder.com/300x200?text=Egyptian+Museum"
+    "imageUrl": "https://via.placeholder.com/300x200?text=Egyptian+Museum",
+    "link3DTour": "",
+    "review": "Add your review here"
   }
 ]

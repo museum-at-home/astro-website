@@ -1,0 +1,245 @@
+---
+import type { Museum } from '../types/museum';
+
+interface Props {
+  museums: Museum[];
+}
+
+const { museums } = Astro.props;
+---
+
+<div class="profiles-container">
+  <div class="profiles-intro">
+    <p>Below are my personal reviews of museums' online content and 3D tour experiences. Each review reflects my assessment of the digital experience and educational value. Click the link to explore the 3D tour directly.</p>
+  </div>
+
+  <div class="profiles-grid">
+    {museums.map((museum: Museum) => (
+      <div class="profile-card">
+        <div class="profile-header">
+          <h3>{museum.name}</h3>
+          <p class="location">📍 {museum.location}</p>
+          <p class="type"><strong>Type:</strong> {museum.type}</p>
+        </div>
+
+        <div class="profile-body">
+          <p class="review">{museum.review}</p>
+          
+          <div class="rating-section">
+            <div class="stars">{'⭐'.repeat(museum.rating)}</div>
+            <div class="rating-text">Rating: {museum.rating}/5</div>
+          </div>
+
+          <div class="features">
+            <span class="feature" class:list={{ active: museum.has3DTour }}>
+              🔍 3D Tour: {museum.has3DTour ? '✓' : '✗'}
+            </span>
+            <span class="feature" class:list={{ active: museum.hasAudioTour }}>
+              🎧 Audio: {museum.hasAudioTour ? '✓' : '✗'}
+            </span>
+          </div>
+        </div>
+
+        <div class="profile-footer">
+          {museum.link3DTour ? (
+            <a href={museum.link3DTour} target="_blank" class="tour-btn">
+              Explore 3D Tour →
+            </a>
+          ) : (
+            <span class="no-tour">No 3D Tour Available</span>
+          )}
+          <a href={museum.website} target="_blank" class="website-btn">
+            Visit Website
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .profiles-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .profiles-intro {
+    background-color: #f0f7ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0066cc;
+  }
+
+  .profiles-intro p {
+    color: #333;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .profile-header {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+    color: white;
+  }
+
+  .profile-header h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+  }
+
+  .location {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .type {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .profile-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .review {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .rating-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .stars {
+    font-size: 1.5rem;
+  }
+
+  .rating-text {
+    font-weight: 600;
+    color: #0066cc;
+    font-size: 0.95rem;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .feature {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .feature.active {
+    background-color: #e8f4f8;
+    color: #0066cc;
+    font-weight: 600;
+  }
+
+  .profile-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .tour-btn,
+  .website-btn,
+  .no-tour {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .tour-btn {
+    background-color: #0066cc;
+    color: white;
+  }
+
+  .tour-btn:hover {
+    background-color: #004999;
+    transform: translateX(2px);
+  }
+
+  .website-btn {
+    background-color: #999;
+    color: white;
+  }
+
+  .website-btn:hover {
+    background-color: #666;
+  }
+
+  .no-tour {
+    background-color: #f0f0f0;
+    color: #999;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .profiles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .profile-header {
+      padding: 1.25rem;
+    }
+
+    .profile-header h3 {
+      font-size: 1.1rem;
+    }
+
+    .profile-body {
+      padding: 1.25rem;
+    }
+
+    .review {
+      font-size: 0.9rem;
+    }
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import MAHProfiles from '../components/MAHProfiles.astro';
+import type { Museum } from '../types/museum';
+import museums from '../data/museums.json';
+---
+
+<Layout title="MAH Profiles - Museum at Home" description="Personal reviews of museums' online content and 3D tours with direct links to experiences">
+  <Navigation />
+  <main>
+    <h1>MAH Profiles</h1>
+    <p>Discover my personal reviews of museums around the world. Each profile includes my rating, a detailed review of their online content, and direct links to their 3D tours.</p>
+    
+    <MAHProfiles museums={museums as Museum[]} />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    color: #0066cc;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  p {
+    color: #666;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+</style>

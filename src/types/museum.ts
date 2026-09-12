@@ -9,4 +9,6 @@ export interface Museum {
   hasAudioTour: boolean;
   rating: 1 | 2 | 3 | 4 | 5;
   imageUrl: string;
+  link3DTour: string;
+  review: string;
 }
