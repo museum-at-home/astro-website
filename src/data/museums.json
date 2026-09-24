@@ -8,10 +8,10 @@
     "website": "https://www.metmuseum.org",
     "has3DTour": true,
     "hasAudioTour": true,
-    "rating": 5,
+    "rating": 3.5,
     "imageUrl": "https://via.placeholder.com/300x200?text=Metropolitan+Museum",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://www.metmuseum.org/art/online-features/met-360-project",
+    "review": "The Met has been making family guides since the late 1990's. The guides are available online and have great interactive materials for preschool, and early elementary learners, about art and culture. Their online tour is a series of youtube videos that work like virtual reality experiences, but for you Ipad or smartphone. I do not personally like this method compared to other tour softwares because its tedious to have to go from video to video."
   },
   {
     "id": 2,
