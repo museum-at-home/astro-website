@@ -24,8 +24,8 @@
     "hasAudioTour": true,
     "rating": 5,
     "imageUrl": "https://via.placeholder.com/300x200?text=British+Museum",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://artsandculture.google.com/streetview/british-museum/AwEp68JO4NECkQ?sv_lng=-0.12660248387204245&sv_lat=51.51905371774084&sv_h=286&sv_p=0&sv_pid=JeKwUFYAMWXNWPh3IOg3jw&sv_z=1",
+    "review": "The British Museum offers a comprehensive overview of human history and culture. Its virtual tour is well-organized, allowing users to explore different sections of the museum easily. They do a very good job of creating educational materials using a wide variety of mediums from videos, podcasts, to structured activities."
   },
   {
     "id": 3,
@@ -38,8 +38,8 @@
     "hasAudioTour": true,
     "rating": 5,
     "imageUrl": "https://via.placeholder.com/300x200?text=AMNH",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://artsandculture.google.com/streetview/american-museum-of-natural-history/OQGjMrLQ0rj5Dw?sv_lng=-73.97369242434937&sv_lat=40.78077794595406&sv_h=226.68461722445113&sv_p=-13.180436928870975&sv_pid=VnzjQRniQBOlJ1KvooFq-g&sv_z=1",
+    "review": "The American Museum of Natural History provides an engaging virtual tour experience. The 3D tour allows users to explore the museum's vast exhibits, from dinosaur fossils to space displays. The educational resources available online are top-notch, making it a great destination for learners of all ages."
   },
   {
     "id": 4,
@@ -50,10 +50,10 @@
     "website": "https://www.louvre.fr",
     "has3DTour": true,
     "hasAudioTour": true,
-    "rating": 5,
+    "rating": 3,
     "imageUrl": "https://via.placeholder.com/300x200?text=The+Louvre",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://www.louvre.fr/en/online-tours",
+    "review": "The Louvre offers an exceptional virtual tour experience, allowing users to launch into different collections of art and artifacts. The online tours are interactive with different engaging icons providing detailed information about different artifacts. The museum's educational resources are catered more for in person tourists. However, MAH users can take advantage of the Visitor Trails audio tours."
   },
   {
     "id": 5,
@@ -62,12 +62,12 @@
     "type": "History",
     "description": "A comprehensive museum dedicated to World War II history with interactive exhibits.",
     "website": "https://www.nationalww2museum.org",
-    "has3DTour": true,
-    "hasAudioTour": true,
-    "rating": 4,
+    "has3DTour": false,
+    "hasAudioTour": false,
+    "rating": 2,
     "imageUrl": "https://via.placeholder.com/300x200?text=WWII+Museum",
     "link3DTour": "",
-    "review": "Add your review here"
+    "review": "The National WWII Museum offers a detailed look into the events of World War II. While it lacks a 3D tour, some of their podcasts provide rich narratives that enhance the virtual experience. The museum's commitment to education is evident in its well-curated classroom guides and other online resources."
   },
   {
     "id": 6,
@@ -76,12 +76,12 @@
     "type": "Art",
     "description": "A leading modern and contemporary art museum with works from the late 19th century to present.",
     "website": "https://www.moma.org",
-    "has3DTour": false,
+    "has3DTour": true,
     "hasAudioTour": true,
     "rating": 4,
     "imageUrl": "https://via.placeholder.com/300x200?text=MoMA",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://360stories.com/nyc/place/the-museum-of-modern-art",
+    "review": "The Museum of Modern Art (MoMA) provides a rich virtual experience with its extensive collection of modern and contemporary art. The 3D tour allows users to navigate through the galleries and appreciate the artworks up close with clarity. The audio guides offer insightful commentary, making it a valuable resource for art enthusiasts and students alike. The Teaching Resources section is particularly helpful for educators looking to incorporate art into their curriculum, and includes lessons in spanish."
   },
   {
     "id": 7,
@@ -91,11 +91,11 @@
     "description": "One of the world's preeminent museums of natural history with over 145 million specimens.",
     "website": "https://naturalhistory.si.edu",
     "has3DTour": true,
-    "hasAudioTour": true,
-    "rating": 5,
+    "hasAudioTour": false,
+    "rating": 4,
     "imageUrl": "https://via.placeholder.com/300x200?text=Smithsonian",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://naturalhistory2.si.edu/vt3/NMNH/index.html?startscene=19&startactions=lookat(-30.9,-3.6,120,0,0);",
+    "review": "The Smithsonian National Museum of Natural History offers a captivating virtual tour experience, showcasing its vast collection of specimens and exhibits. The 3D tour was coded for the museum which allows users to explore the museum's halls with an integrated map for easy navigation. While the audio tour is not available for free, the museum provides a wealth of online resources for educators and students, making it a valuable tool for learning about natural history."
   },
   {
     "id": 8,
@@ -106,10 +106,10 @@
     "website": "https://www.museivaticani.va",
     "has3DTour": true,
     "hasAudioTour": false,
-    "rating": 4,
+    "rating": 2,
     "imageUrl": "https://via.placeholder.com/300x200?text=Vatican+Museums",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/tour-virtuali-elenco.html",
+    "review": "This is a nice way to bring a little slice of Italy into your day. The Vatican Museum has several stand-alone room tours that are in a 360 view. Given its status as a historic site for tourists most educational offerings are not in an online format. However that does not take away from the beauty of the architecture you can find online."
   },
   {
     "id": 9,
@@ -122,21 +122,21 @@
     "hasAudioTour": true,
     "rating": 4,
     "imageUrl": "https://via.placeholder.com/300x200?text=Science+Museum+London",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://360tour.sciencemuseum.org.uk/",
+    "review": "The Science Museum in London offers an engaging virtual tour experience, allowing visitors to explore its diverse exhibits from the comfort of their homes. The 3D tour is well-designed, providing an interactive way to learn about science and technology. The audio guides can be found on the offical museum app, and enhance the experience with informative commentary, making it a great resource for students and educators alike."
   },
   {
     "id": 10,
-    "name": "The Egyptian Museum",
+    "name": "The Grand Egyptian Museum",
     "location": "Cairo, Egypt",
     "type": "History",
     "description": "Home to the world's largest collection of ancient Egyptian artifacts including mummies and treasures.",
-    "website": "https://egymuseum.org",
+    "website": "https://gem.eg/",
     "has3DTour": true,
     "hasAudioTour": false,
-    "rating": 5,
+    "rating": 1,
     "imageUrl": "https://via.placeholder.com/300x200?text=Egyptian+Museum",
-    "link3DTour": "",
-    "review": "Add your review here"
+    "link3DTour": "https://discover.matterport.com/space/R2qJ77hmqAz",
+    "review": "The Grand Egyptian Museum offers a limited, but stunning, virtual tour experience, allowing visitors to explore some of its collection of ancient artifacts from the comfort of their homes. While the audio tour is not available for free, the museum's website offers a wealth of information and resources for those interested in learning more about ancient Egyptian history."
   }
 ]
