@@ -5,7 +5,14 @@
 <nav class="navbar">
   <div class="nav-container">
     <a href="/" class="nav-logo">Museum At Home</a>
-    <ul class="nav-menu">
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <ul class="nav-menu" id="navMenu">
       <li class="nav-item">
         <a href="/" class="nav-link">Home</a>
       </li>
@@ -31,6 +38,25 @@
   </div>
 </nav>
 
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger?.addEventListener('click', () => {
+    navMenu?.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu?.classList.remove('active');
+      hamburger?.classList.remove('active');
+    });
+  });
+</script>
+
 <style>
   .navbar {
     background-color: #0066cc;
@@ -38,6 +64,7 @@
     position: sticky;
     top: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
 
   .nav-container {
@@ -54,16 +81,47 @@
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
+    z-index: 1001;
   }
 
   .nav-logo:hover {
     color: #e0e0e0;
   }
 
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
   .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-item {
@@ -74,10 +132,74 @@
     color: white;
     font-weight: 500;
     transition: color 0.3s ease;
+    text-decoration: none;
   }
 
   .nav-link:hover {
     color: #ffcc00;
     text-decoration: none;
+  }
+
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-container {
+      padding: 0 1rem;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+    }
+
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      flex-direction: column;
+      background-color: #0066cc;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      padding: 2rem 0;
+      gap: 0;
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    .nav-item {
+      padding: 1rem 0;
+      margin: 0;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0 1rem;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+    }
+
+    .hamburger span {
+      width: 20px;
+      height: 2.5px;
+      margin: 4px 0;
+    }
+
+    .nav-link {
+      font-size: 1rem;
+    }
   }
 </style>
