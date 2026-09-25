@@ -14,15 +14,18 @@ import Navigation from '../components/Navigation.astro';
       <div class="content-grid">
         <div class="content-card">
           <h3>MAH Profiles</h3>
-          <p> Direct access to detailed profiles of various museums and their collections.</p>
+          <p>Direct access to detailed profiles of various museums and their collections.</p>
+          <a href="/mahprofiles" class="cta-button">Explore Profiles →</a>
         </div>
         <div class="content-card">
           <h3>Virtual Tours</h3>
           <p>Experience immersive virtual tours of renowned museums from the comfort of your device.</p>
+          <a href="/explore" class="cta-button">Browse Museums →</a>
         </div>
         <div class="content-card">
           <h3>Exclusive Educational Activities from Museum At Home</h3>
           <p>Stay engaged with a variety of educational activities, designed by Museum At Home, for all ages.</p>
+          <a href="/about" class="cta-button">Learn More →</a>
         </div>
       </div>
     </section>
@@ -72,6 +75,27 @@ import Navigation from '../components/Navigation.astro';
   .content-card h3 {
     color: #0066cc;
     margin-bottom: 0.75rem;
+  }
+
+  .content-card p {
+    margin-bottom: 1.25rem;
+    color: #333;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: #0066cc;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #004999;
+    transform: translateX(4px);
   }
 
   ul {
