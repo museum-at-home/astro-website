@@ -7,8 +7,9 @@ export interface Museum {
   website: string;
   has3DTour: boolean;
   hasAudioTour: boolean;
-  rating: 1 | 2 | 3 | 4 | 5;
+  rating: 1 | 2 | 3 | 4 | 5 | number;
   imageUrl: string;
   link3DTour: string;
+  linkAudioTour: string;
   review: string;
 }
