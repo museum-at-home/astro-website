@@ -1,0 +1,78 @@
+backend:
+  name: github
+  repo: museum-at-home/astro-website
+  branch: main
+  auth_endpoint: api/auth
+  cms_label_prefix: cms/
+
+media_folder: "public/images"
+public_path: "/images"
+
+collections:
+  - name: "museums"
+    label: "Museums"
+    folder: "src/data"
+    create: false
+    extension: "json"
+    format: "json"
+    files:
+      - file: "src/data/museums.json"
+        label: "Museums Database"
+        name: "museums"
+        fields:
+          - label: "Museums"
+            name: "root"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "number" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - {
+                  label: "Type",
+                  name: "type",
+                  widget: "select",
+                  options:
+                    [
+                      "Art",
+                      "Science",
+                      "History",
+                      "Ethnography/Cultural",
+                      "Archaeology",
+                      "Natural History",
+                    ],
+                }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Website", name: "website", widget: "string" }
+              - { label: "Has 3D Tour", name: "has3DTour", widget: "boolean" }
+              - { label: "Has Audio Tour", name: "hasAudioTour", widget: "boolean" }
+              - { label: "Rating", name: "rating", widget: "number", min: 0, max: 5, step: 0.5 }
+              - { label: "Image URL", name: "imageUrl", widget: "string" }
+              - { label: "3D Tour Link", name: "link3DTour", widget: "string", required: false }
+              - { label: "Audio Tour Link", name: "linkAudioTour", widget: "string", required: false }
+              - { label: "Review", name: "review", widget: "text", required: false }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "src/pages"
+    extension: "astro"
+    format: "frontmatter"
+    frontmatter_delimiter: "---"
+    files:
+      - file: "src/pages/index.astro"
+        label: "Home"
+        name: "home"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+      - file: "src/pages/about.astro"
+        label: "About"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+      - file: "src/pages/contact.astro"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
