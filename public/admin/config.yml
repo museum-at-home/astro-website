@@ -8,6 +8,13 @@ backend:
 media_folder: "public/images"
 public_path: "/images"
 
+# Separate media folder for PDFs
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: null  # Optional: use Cloudinary for large files
+    api_key: null
+
 collections:
   - name: "museums"
     label: "Museums"
@@ -76,3 +83,26 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "string" }
+
+  - name: "documents"
+    label: "Downloadable Resources"
+    folder: "src/data"
+    create: false
+    extension: "json"
+    format: "json"
+    files:
+      - file: "src/data/documents.json"
+        label: "Downloadable Documents"
+        name: "documents"
+        fields:
+          - label: "Documents"
+            name: "root"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Category", name: "category", widget: "select", options: ["Guide", "Educational", "Research", "Other"], required: false }
+              - { label: "PDF File", name: "fileUrl", widget: "file", media_library: { config: { multiple: false } } }
+              - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+              - { label: "Date Added", name: "dateAdded", widget: "datetime" }

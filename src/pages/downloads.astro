@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PdfDownload from '../components/PdfDownload.astro';
+import type { Document } from '../types/document';
+
+const documentsData = await import('../data/documents.json');
+const documents = documentsData.default as Document[];
+
+// Sort by date (newest first)
+const sortedDocuments = documents.sort((a, b) => 
+  new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime()
+);
+
+// Group by category
+const documentsByCategory = sortedDocuments.reduce((acc, doc) => {
+  const category = doc.category || 'Other';
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(doc);
+  return acc;
+}, {} as Record<string, Document[]>);
+---
+
+<Layout title="Downloads - Museum at Home">
+  <main class="downloads-container">
+    <h1>Downloadable Resources</h1>
+    <p class="intro-text">
+      Explore our collection of guides, educational materials, and research documents. 
+      All files are available for free download.
+    </p>
+
+    {Object.entries(documentsByCategory).map(([category, docs]) => (
+      <section class="category-section">
+        <h2>{category}</h2>
+        <div class="documents-grid">
+          {docs.map((doc) => (
+            <PdfDownload
+              title={doc.title}
+              fileUrl={doc.fileUrl}
+              description={doc.description}
+              thumbnail={doc.thumbnail}
+              category={doc.category}
+            />
+          ))}
+        </div>
+      </section>
+    ))}
+
+    {documents.length === 0 && (
+      <div class="no-documents">
+        <p>No documents available yet. Check back soon!</p>
+      </div>
+    )}
+  </main>
+</Layout>
+
+<style>
+  .downloads-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .category-section {
+    margin-bottom: 3rem;
+  }
+
+  .category-section h2 {
+    font-size: 1.75rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #1976d2;
+    padding-bottom: 0.5rem;
+  }
+
+  .documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .no-documents {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    .downloads-container {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .category-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .documents-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "1",
+    "title": "Museum Guide Example",
+    "description": "A sample museum guide document",
+    "category": "Guide",
+    "fileUrl": "/documents/sample-guide.pdf",
+    "thumbnail": "/images/guide-thumb.jpg",
+    "dateAdded": "2026-10-26T00:00:00Z"
+  }
+]
