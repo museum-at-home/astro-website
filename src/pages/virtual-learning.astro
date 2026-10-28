@@ -1,0 +1,435 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import type { Museum } from '../types/museum';
+import museums from '../data/museums.json';
+
+// Filter museums that have virtual learning links
+const museumsWithLearning = (museums as Museum[]).filter(
+  museum => museum.virtualLearning && museum.virtualLearning.trim() !== ''
+);
+
+// Group museums by type
+const museumsByType = museumsWithLearning.reduce((acc, museum) => {
+  if (!acc[museum.type]) {
+    acc[museum.type] = [];
+  }
+  acc[museum.type].push(museum);
+  return acc;
+}, {} as Record<string, Museum[]>);
+
+// Sort types alphabetically
+const sortedTypes = Object.keys(museumsByType).sort();
+---
+
+<Layout title="Virtual Learning Hub - Museum at Home" description="Explore virtual educational resources from museums around the world">
+  <Navigation />
+  <main class="learning-hub">
+    <header class="hub-header">
+      <h1>🎓 Virtual Learning Hub</h1>
+      <p class="intro-text">
+        Discover educational resources and virtual learning experiences directly from museums around the world. 
+        Each museum offers unique opportunities to learn from home through interactive content, tutorials, and guided tours.
+      </p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">{museumsWithLearning.length}</div>
+          <div class="stat-label">Museums with Learning Resources</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{sortedTypes.length}</div>
+          <div class="stat-label">Categories</div>
+        </div>
+      </div>
+    </header>
+
+    {sortedTypes.map(type => (
+      <section class="learning-section">
+        <h2 class="section-title">{type} Education</h2>
+        <div class="museums-grid">
+          {museumsByType[type]?.map(museum => (
+            <article class="learning-card">
+              <div class="card-header">
+                <img 
+                  src={museum.imageUrl} 
+                  alt={museum.name}
+                  class="museum-image"
+                />
+                <div class="museum-meta">
+                  <h3>{museum.name}</h3>
+                  <p class="location">📍 {museum.location}</p>
+                  <div class="rating">
+                    {'★'.repeat(Math.round(museum.rating))}
+                    <span class="rating-value">{museum.rating}/5</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-content">
+                <p class="description">{museum.description}</p>
+
+                <div class="features">
+                  {museum.has3DTour && (
+                    <span class="feature-tag">🌐 3D Tour</span>
+                  )}
+                  {museum.hasAudioTour && (
+                    <span class="feature-tag">🎧 Audio Tour</span>
+                  )}
+                  <span class="feature-tag">📚 Learning Resources</span>
+                </div>
+
+                <p class="learning-note">
+                  <strong>Educational Focus:</strong> {museum.review.substring(0, 150)}...
+                </p>
+              </div>
+
+              <div class="card-actions">
+                <a 
+                  href={museum.virtualLearning} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-primary"
+                  aria-label={`Explore ${museum.name}'s virtual learning resources`}
+                >
+                  Explore Learning Resources →
+                </a>
+                <a 
+                  href={museum.website} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-secondary"
+                  aria-label={`Visit ${museum.name}'s website`}
+                >
+                  Visit Museum Website
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    {museumsWithLearning.length === 0 && (
+      <div class="no-results">
+        <p>No museums with learning resources found.</p>
+      </div>
+    )}
+
+    <section class="learning-tips">
+      <h2>💡 Tips for Virtual Learning</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <h3>📖 Start with Guided Tours</h3>
+          <p>Many museums offer audio and virtual tours that provide curated explanations of their collections.</p>
+        </div>
+        <div class="tip-card">
+          <h3>👥 Join Educational Programs</h3>
+          <p>Look for workshops, webinars, and virtual classes offered by museums for deeper learning experiences.</p>
+        </div>
+        <div class="tip-card">
+          <h3>📚 Access Educational Materials</h3>
+          <p>Download lesson plans, activity guides, and educational resources tailored for different age groups.</p>
+        </div>
+        <div class="tip-card">
+          <h3>🎨 Explore Collections Online</h3>
+          <p>Browse high-resolution images and detailed descriptions of artifacts and artworks from around the world.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .learning-hub {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
+
+  .hub-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .hub-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    opacity: 0.95;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+  }
+
+  .learning-section {
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #667eea;
+    display: inline-block;
+  }
+
+  .museums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .learning-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .learning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-header {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+
+  .museum-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .museum-meta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 1.5rem;
+  }
+
+  .museum-meta h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+  }
+
+  .location {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .rating {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .rating-value {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+  }
+
+  .card-content {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .description {
+    color: #555;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .feature-tag {
+    background: #e8f0ff;
+    color: #667eea;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .learning-note {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .card-actions {
+    padding: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  }
+
+  .btn-secondary {
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #667eea;
+  }
+
+  .btn-secondary:hover {
+    background: #667eea;
+    color: white;
+  }
+
+  .learning-tips {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+  }
+
+  .learning-tips h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .tip-card {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+  }
+
+  .tip-card h3 {
+    color: #333;
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-card p {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 12px;
+    color: #666;
+  }
+
+  @media (max-width: 768px) {
+    .hub-header h1 {
+      font-size: 2rem;
+    }
+
+    .intro-text {
+      font-size: 1rem;
+    }
+
+    .stats {
+      gap: 1.5rem;
+    }
+
+    .museums-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .learning-tips {
+      padding: 1.5rem 1rem;
+    }
+
+    .tips-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
