@@ -6,6 +6,10 @@ import Navigation from '../components/Navigation.astro';
 <Layout title="Home - My Website" description="Welcome to our website">
   <Navigation />
   <main>
+    <div class="logo-section">
+      <img src="/images/MAH Logo.jpg" alt="Museum at Home Logo" class="home-logo" />
+    </div>
+    
     <h1>🚀 Welcome to Museum At Home</h1>
     <p>This special website will help you find online content from museums all over the world. Edit <code>src/pages/index.astro</code> to get started.</p>
 
@@ -25,6 +29,20 @@ import Navigation from '../components/Navigation.astro';
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
+  }
+
+  .logo-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .home-logo {
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
   }
 
   h1 {

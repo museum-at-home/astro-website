@@ -4,7 +4,9 @@
 
 <nav class="navbar">
   <div class="nav-container">
-    <a href="/" class="nav-logo">Museum At Home</a>
+    <a href="/" class="nav-logo">
+      <img src="/images/MAH Logo.jpg" alt="Museum at Home Logo" class="logo-img" />
+    </a>
     
     <div class="hamburger" id="hamburger">
       <span></span>
@@ -82,10 +84,18 @@
     font-weight: bold;
     text-decoration: none;
     z-index: 1001;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
   }
 
   .nav-logo:hover {
-    color: #e0e0e0;
+    opacity: 0.8;
   }
 
   .hamburger {
