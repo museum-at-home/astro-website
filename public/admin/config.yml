@@ -56,6 +56,7 @@ collections:
               - { label: "Image URL", name: "imageUrl", widget: "string" }
               - { label: "3D Tour Link", name: "link3DTour", widget: "string", required: false }
               - { label: "Audio Tour Link", name: "linkAudioTour", widget: "string", required: false }
+              - { label: "Virtual Learning Link", name: "virtualLearning", widget: "string", required: false, hint: "Direct link to museum's virtual educational content" }
               - { label: "Review", name: "review", widget: "text", required: false }
 
   - name: "pages"

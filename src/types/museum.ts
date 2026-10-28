@@ -2,7 +2,7 @@ export interface Museum {
   id: number;
   name: string;
   location: string;
-  type: 'Art' | 'Science' | 'History';
+  type: 'Art' | 'Science' | 'History' | 'Ethnography/Cultural';
   description: string;
   website: string;
   has3DTour: boolean;
@@ -12,4 +12,5 @@ export interface Museum {
   link3DTour: string;
   linkAudioTour: string;
   review: string;
+  virtualLearning?: string;
 }
