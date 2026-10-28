@@ -1,11 +1,11 @@
 [
   {
     "id": "1",
-    "title": "Museum Guide Example",
-    "description": "A sample museum guide document",
-    "category": "Guide",
-    "fileUrl": "/documents/sample-guide.pdf",
-    "thumbnail": "/images/guide-thumb.jpg",
-    "dateAdded": "2026-10-26T00:00:00Z"
+    "title": "MAH Three Degrees Activity",
+    "description": "An interactive activity guide for Museum at Home",
+    "category": "Educational",
+    "fileUrl": "/documents/MAH_Three Degrees_Activity.pdf",
+    "thumbnail": null,
+    "dateAdded": "2026-10-28T00:00:00Z"
   }
 ]
