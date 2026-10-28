@@ -13,3 +13,5 @@
 {"message":"[404] /config.yml 1ms","label":null,"level":"info"}
 {"message":"[200] /upload 9ms","label":null,"level":"info"}
 {"message":"[404] /favicon.svg 2ms","label":null,"level":"info"}
+{"message":"src/pages/admin.astro","label":"watch","level":"info"}
+{"message":"[200] /upload 15ms","label":null,"level":"info"}
