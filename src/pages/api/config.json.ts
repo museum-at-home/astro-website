@@ -1,13 +1,16 @@
 export async function GET() {
+  const clientId = import.meta.env.GITHUB_CLIENT_ID;
+  
   const config = {
     backend: {
       name: 'github',
       repo: 'museum-at-home/astro-website',
       branch: 'main',
-      auth_endpoint: 'api/auth',
+      client_id: clientId,
+      base_url: 'https://github.com',
+      auth_endpoint: 'login/oauth/authorize',
       cms_label_prefix: 'cms/'
     },
-    local_backend: true,
     media_folder: 'public/images',
     public_path: '/images',
     collections: [
