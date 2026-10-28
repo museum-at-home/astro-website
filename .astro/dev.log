@@ -1,20 +1,6 @@
 {"message":"connected.","label":"vite","level":"info"}
 {"message":"Generated 0ms","label":"types","level":"info"}
 {"message":"connected.","label":"vite","level":"info"}
-{"message":" astro  v7.1.6 ready in 745 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
+{"message":" astro  v7.1.6 ready in 819 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
 {"message":"watching for file changes...","label":null,"level":"info"}
-{"message":"[200] / 17ms","label":null,"level":"info"}
-{"message":"/src/pages/index.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
-{"message":"[200] / 7ms","label":null,"level":"info"}
-{"message":"[200] / 4ms","label":null,"level":"info"}
-{"message":"[200] /about 8ms","label":null,"level":"info"}
-{"message":"[200] /features 8ms","label":null,"level":"info"}
-{"message":"[200] /mahprofiles 12ms","label":null,"level":"info"}
-{"message":"[200] /mahprofiles 4ms","label":null,"level":"info"}
-{"message":"[200] /museums 9ms","label":null,"level":"info"}
-{"message":"[200] / 22ms","label":null,"level":"info"}
-{"message":"[200] /virtual-learning 7ms","label":null,"level":"info"}
-{"message":"src/components/Navigation.astro","label":"watch","level":"info"}
-{"message":"[200] /virtual-learning 6ms","label":null,"level":"info"}
-{"message":"src/components/Navigation.astro","label":"watch","level":"info"}
-{"message":"[200] /virtual-learning 12ms","label":null,"level":"info"}
