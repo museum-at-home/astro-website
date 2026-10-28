@@ -12,3 +12,9 @@
 {"message":"[200] /mahprofiles 12ms","label":null,"level":"info"}
 {"message":"[200] /mahprofiles 4ms","label":null,"level":"info"}
 {"message":"[200] /museums 9ms","label":null,"level":"info"}
+{"message":"[200] / 22ms","label":null,"level":"info"}
+{"message":"[200] /virtual-learning 7ms","label":null,"level":"info"}
+{"message":"src/components/Navigation.astro","label":"watch","level":"info"}
+{"message":"[200] /virtual-learning 6ms","label":null,"level":"info"}
+{"message":"src/components/Navigation.astro","label":"watch","level":"info"}
+{"message":"[200] /virtual-learning 12ms","label":null,"level":"info"}
