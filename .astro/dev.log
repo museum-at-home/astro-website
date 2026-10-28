@@ -1,11 +1,5 @@
 {"message":"connected.","label":"vite","level":"info"}
 {"message":"Generated 0ms","label":"types","level":"info"}
 {"message":"connected.","label":"vite","level":"info"}
-{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
-{"message":" astro  v7.1.6 ready in 783 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":" astro  v7.1.6 ready in 699 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
 {"message":"watching for file changes...","label":null,"level":"info"}
-{"message":"\n update  ▶ New version of Astro available: 7.4.2\n  Run npx @astrojs/upgrade to update\n","label":"SKIP_FORMAT","level":"warn"}
-{"message":"[200] / 15ms","label":null,"level":"info"}
-{"message":"[200] /downloads 6ms","label":null,"level":"info"}
-{"message":"[404] /images/guide-thumb.jpg 3ms","label":null,"level":"info"}
-{"message":"[404] /images/guide-thumb.jpg 0ms","label":null,"level":"info"}

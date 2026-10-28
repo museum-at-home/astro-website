@@ -1,0 +1,36 @@
+---
+// Decap CMS Admin Panel
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum at Home CMS</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css" />
+  </head>
+  <body>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      (async function() {
+        // Wait for Decap CMS to load
+        let attempts = 0;
+        while (!window.CMS && attempts < 50) {
+          await new Promise(r => setTimeout(r, 100));
+          attempts++;
+        }
+        
+        if (window.CMS) {
+          // Fetch the config
+          const response = await fetch('/api/config.json');
+          const config = await response.json();
+          
+          // Initialize CMS with the fetched config
+          window.CMS.init({ config });
+        }
+      })();
+    </script>
+  </body>
+</html>
