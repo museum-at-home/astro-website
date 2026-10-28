@@ -148,5 +148,20 @@
     "link3DTour": "https://discover.matterport.com/space/R2qJ77hmqAz",
     "linkAudioTour": "",
     "review": "The Grand Egyptian Museum offers a limited, but stunning, virtual tour experience, allowing visitors to explore some of its collection of ancient artifacts from the comfort of their homes. While the audio tour is not available for free, the museum's website offers a wealth of information and resources for those interested in learning more about ancient Egyptian history."
+  },
+  {
+    "id": 11,
+    "name": "The National Museum of the American Indian",
+    "location": "Washington, D.C.",
+    "type": "Ethnography/Cultural",
+    "description": "Built in 1989, the museum strives to advance knowledge and understanding of Native culture through partnership with Native people and others.",
+    "website": "https://americanindian.si.edu/",
+    "has3DTour": true,
+    "hasAudioTour": false,
+    "rating": 4,
+    "imageUrl": "https://images.trvl-media.com/place/6068541/91737d22-dd76-4720-a632-2e91403abbdc.jpg",
+    "link3DTour": "https://artsandculture.google.com/streetview/museum-exterior-and-native-landscape-washington-dc/6wHMSaTL5idWLw?sv_lng=-77.01658217780617&sv_lat=38.88830378024795&sv_h=71.95742735370837&sv_p=2.5673711322983763&sv_pid=owpz6PBgE6PjwjZtfKovcg&sv_z=1.960033233720583",
+    "linkAudioTour": "",
+    "review": "The online resources of Native history and culture provided by this museum are top tier. Their Native 360 programs are organized and contain a huge amount of information curated for a variety of topics. I visited this museum in person once, and it was unforgettable. Their online presence creates meaningful and authentic experiences."
   }
 ]
